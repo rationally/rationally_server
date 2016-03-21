@@ -11,7 +11,9 @@ install:
 script: "python manage.py test"
 
 notifications:
-  slack: rationally:BL1ku5g7rd3jrxQsbK01yDOu
+  slack:
+    rooms:
+    - rationally:BL1ku5g7rd3jrxQsbK01yDO
       on_success: change
       on_failure: always
 
