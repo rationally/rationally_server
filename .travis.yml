@@ -15,7 +15,7 @@ notifications:
     rooms:
     - rationally:BL1ku5g7rd3jrxQsbK01yDO#notifications
     on_success: change
-    on_failure: always
+      on_failure: always
 
 after_success:
-- "flake8 rationally_server search"
+- "flake8 --radon-max-cc 10 rationally_server search"
