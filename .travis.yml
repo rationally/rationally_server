@@ -14,8 +14,8 @@ notifications:
   slack:
     rooms:
     - rationally:BL1ku5g7rd3jrxQsbK01yDO
-      on_success: change
-      on_failure: always
+    on_success: change
+    on_failure: always
 
 after_success:
 - "flake8 rationally_server search"
