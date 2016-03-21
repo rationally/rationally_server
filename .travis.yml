@@ -11,9 +11,8 @@ install:
 
 script: "python manage.py test"
 
-notifications:
-  slack: rationally:BL1ku5g7rd3jrxQsbK01yDO
-
-
 after_success:
 - "flake8 --radon-max-cc 10 rationally_server search"
+
+notifications:
+  slack: rationally:BL1ku5g7rd3jrxQsbK01yDOu
