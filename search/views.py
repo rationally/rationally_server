@@ -1,5 +1,8 @@
 from django.http import HttpResponse
 
-#TODO Create proper response
+
+# TODO Create proper response
+
+
 def index(request):
-    return HttpResponse("Hello World!")git un
+    return HttpResponse("Hello World!")
