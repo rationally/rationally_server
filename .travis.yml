@@ -13,7 +13,7 @@ script: "python manage.py test"
 notifications:
   slack:
     rooms:
-    - rationally:BL1ku5g7rd3jrxQsbK01yDO
+    - rationally:BL1ku5g7rd3jrxQsbK01yDO#notifications
     on_success: change
     on_failure: always
 
