@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y_@74+=m!0dzjs(+%elc&)24%9z=n5*(d7&0i%kuqn=zdj8u)l'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'y_@74+=m!0dzjs(+%elc&)24%9z=n5*(d7&0i%kuqn=zdj8u)l')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,12 +76,26 @@ WSGI_APPLICATION = 'rationally_server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if os.environ.get("PRODUCTION", None):
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ.get("DB_DATABASE", None),
+            'USER': os.environ.get("DB_USER", None),
+            'PASSWORD': os.environ.get("DB_PASSWORD", None),
+            'HOST': os.environ.get("DB_HOST", None),
+            'PORT': os.environ.get("DB_PORT", None),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
 
 
 # Password validation
