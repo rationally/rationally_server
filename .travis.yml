@@ -6,12 +6,14 @@ python:
 install:
 - "pip install -r requirements.txt"
 - "pip install flake8"
-- "pip install flake8-todoe8"
+- "pip install flake8-todo8"
 
 script: "python manage.py test"
 
 notifications:
   slack: rationally:BL1ku5g7rd3jrxQsbK01yDOu
+      on_success: change
+      on_failure: always
 
 after_success:
 - "flake8 rationally_server search"
