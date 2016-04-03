@@ -12,8 +12,8 @@ class Topic(models.Model):
     )
 
     name = models.CharField(max_length=200)
-    state = models.CharField(max_length=20, choices=TOPIC_STATE, default= TOPIC_STATE[0])
-    description = models.TextField
+    state = models.CharField(max_length=20, choices=TOPIC_STATE, default=TOPIC_STATE[0])
+    description = models.TextField(default='')
     date_modified = models.DateTimeField('date modified')
     date_created = models.DateTimeField('date created', default=timezone.now)
     #changelog
@@ -23,7 +23,7 @@ class Topic(models.Model):
 
 
 class Alternative(models.Model):
-    decision = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
 
     def __str__(self):

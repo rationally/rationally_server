@@ -18,10 +18,10 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class TopicSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Topic
-        fields = ('url', 'name', 'modified_date')
+        fields = ('url', 'name', 'state', 'description', 'date_modified', 'date_created')
 
 
 class AlternativeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Alternative
-        fields = ('url', 'name', 'decision')
+        fields = ('url', 'name', 'topic')
