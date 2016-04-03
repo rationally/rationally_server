@@ -1,15 +1,15 @@
-from api.models import Decision, Alternative
+from api.models import Topic, Alternative
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from .serializers import DecisionSerializer, AlternativeSerializer, UserSerializer, GroupSerializer
+from .serializers import TopicSerializer, AlternativeSerializer, UserSerializer, GroupSerializer
 
 
-class DecisionViewSet(viewsets.ModelViewSet):
+class TopicViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows decisions to be viewed or edited.
     """
-    queryset = Decision.objects.all()
-    serializer_class = DecisionSerializer
+    queryset = Topic.objects.all()
+    serializer_class = TopicSerializer
 
 
 class AlternativeViewSet(viewsets.ModelViewSet):

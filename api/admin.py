@@ -1,5 +1,5 @@
 from django.contrib import admin
-from api.models import Decision, Alternative
+from api.models import Topic, Alternative
 
-admin.site.register(Decision)
+admin.site.register(Topic)
 admin.site.register(Alternative)

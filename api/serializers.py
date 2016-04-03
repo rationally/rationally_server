@@ -1,4 +1,4 @@
-from api.models import Decision, Alternative
+from api.models import Topic, Alternative
 from rest_framework import serializers
 from django.contrib.auth.models import User, Group
 
@@ -15,9 +15,9 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'name')
 
 
-class DecisionSerializer(serializers.HyperlinkedModelSerializer):
+class TopicSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Decision
+        model = Topic
         fields = ('url', 'name', 'modified_date')
 
 

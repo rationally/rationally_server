@@ -32,6 +32,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='alternative',
             name='decision',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.Decision'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.models.Topic'),
         ),
     ]
